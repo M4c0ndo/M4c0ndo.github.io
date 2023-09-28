@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>编写第一个POC</title>
+      <link href="/2023/09/28/%E7%BC%96%E5%86%99%E7%AC%AC%E4%B8%80%E4%B8%AAPOC/"/>
+      <url>/2023/09/28/%E7%BC%96%E5%86%99%E7%AC%AC%E4%B8%80%E4%B8%AAPOC/</url>
+      
+        <content type="html"><![CDATA[<p>这篇博客的出现是因为最近有个面试官问了我一个问题，他看我用过xray就问我知不知道xray检测xss漏洞的原理是什么，毫无疑问，像我这种只使用其基础功能的人肯定是不知道的。在以往的面试过程中，我也总是会遇到一些让我知其然而不知其所以然的问题，即只会用，而不知道原理，或者知道原理，却没有真正上手实操过，面试官一旦深入问下去，就立马现出（菜菜的）原形（QAQ）。因此，为了直击痛点，接下来我将会逐步把这些我不知道的问题弄明白，并将其记录下来，一方面是在回顾的过程中学习，另一方面也是为了扩充自己的知识面，积累技能。</p><p>那话不多说，下面就让我们详细了解一下xray是如何检测xss漏洞的吧！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> POC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2023/09/27/hello-world/"/>
       <url>/2023/09/27/hello-world/</url>
