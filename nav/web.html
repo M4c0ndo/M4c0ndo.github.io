@@ -26,7 +26,7 @@
 <script src="/js/jquery-1.11.1.min.js"></script>
 
   <script>
-    var userDefinedSearchData = {"custom":true,"thisSearch":"https://www.baidu.com/s?wd=","thisSearchIcon":"url(https://www.baidu.com/favicon.ico)","hotStatus":true,"data":[{"name":"百度","img":"url(https://www.baidu.com/favicon.ico)","url":"https://www.baidu.com/s?wd="},{"name":"谷歌","img":"url(https://www.google.com/favicon.ico)","url":"https://www.google.com/search?q="}]};
+    var userDefinedSearchData = {"custom":true,"thisSearch":"https://www.google.com/search?q=","thisSearchIcon":"url(url(https://www.google.com/favicon.ico)","hotStatus":true,"data":[{"name":"百度","img":"url(https://www.baidu.com/favicon.ico)","url":"https://www.baidu.com/s?wd="},{"name":"谷歌","img":"url(https://www.google.com/favicon.ico)","url":"https://www.google.com/search?q="}]};
     var expandAll = true;
   </script>
   
@@ -66,8 +66,6 @@
 </head>
 
 
-
-
 <body class="page-body">
 <div class="page-container">
 <div class="sidebar-menu toggle-others fixed">
@@ -101,13 +99,24 @@
           
       </li>
       
-      <li class="">
+      <li class="expanded">
         
-          <a href="#常用工具" class="smooth">
-            
-            <i class="far fa-star"></i>
+        <a class="fas fa-angle-down" style="cursor: pointer;">
+          
+            <i class="fas fa-toolbox"></i>
             <span class="title">常用工具</span>
-          </a>
+        </a>
+          
+          <ul style="display: block;">
+            
+            <li>
+              <a href="#常用邮箱" class="smooth">
+                <i class="fas fa-envelope"></i>
+                <span class="title">常用邮箱</span>
+              </a>
+            </li>
+        
+          </ul>
           
       </li>
 
@@ -131,30 +140,82 @@
           </a>
           
       </li>
+
+      <li class="">
+        
+          <a href="#优质博客" class="smooth">
+            
+            <i class="fas fa-thumbs-up"></i>
+            <span class="title">优质博客</span>
+          </a>
+          
+      </li>
+
       
       <li class="expanded">
         
         <a class="fas fa-angle-down" style="cursor: pointer;">
           
-            <i class="fas fa-tools"></i>
-            <span class="title">其他工具</span>
-          </a>
+            <i class="fas fa-star"></i>
+            <span class="title">帖子收藏</span>
+        </a>
           
           <ul style="display: block;">
             
             <li>
-              <a href="#开发工具" class="smooth">
-                <i class="fas fa-code"></i>
-                <span class="title">开发工具</span>
+              <a href="#Java" class="smooth">
+                <i class="fas fa-coffee"></i>
+                <span class="title">Java</span>
               </a>
             </li>
-        
+
+            <li>
+              <a href="#FreeBuf" class="smooth">
+                <i class="fas fa-bookmark"></i>
+                <span class="title">FreeBuf</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#先知社区" class="smooth">
+                <i class="fas fa-eye"></i>
+                <span class="title">先知社区</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#看雪" class="smooth">
+                <i class="fas fa-snowflake"></i>
+                <span class="title">看雪</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#CSDN" class="smooth">
+                <i class="fas fa-comment"></i>
+                <span class="title">CSDN</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#个人博客" class="smooth">
+                <i class="fas fa-plus"></i>
+                <span class="title">个人博客</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#GitHub仓库" class="smooth">
+                <i class="fab fa-github"></i>
+                <span class="title">GitHub仓库</span>
+              </a>
+            </li>
+
           </ul>
           
       </li>
       
-      
-      <li class="submit-tag">
+      <li class="">
         <a href="/about/">
           <i class="far fa-heart"></i>
           <span class="tooltip-blue">关于本人</span>
@@ -229,8 +290,6 @@
     <script>search('/img/search_icon.png')</script>
   
   
-  
-    
     
         
     <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="个人站点"></i>个人站点</h4>
