@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MacOS中如何使用Wireshark抓取HTTPS流量包</title>
+      <link href="/2023/10/22/MacOS%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Wireshark%E6%8A%93%E5%8F%96HTTPS%E6%B5%81%E9%87%8F%E5%8C%85/"/>
+      <url>/2023/10/22/MacOS%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Wireshark%E6%8A%93%E5%8F%96HTTPS%E6%B5%81%E9%87%8F%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><p>最近有个工作需求是需要使用Wireshark抓取HTTP2的流量包，但是我直接抓取流量的时候只能看到未加密的HTTP和已加密的TLS。原因在于，Wireshark 是基于网络层的抓包工具，通过捕获通信双方的TCP&#x2F;IP包实现内容提取。对于应用层的数据，如果应用层协议是公开的，就可以直接显示数据。但是在处理HTTPS 协议时，因为不知道客户端、服务端的私钥，所以对应的数据不可见。 也就是说，如果 Wireshark 能够获取私钥，就能显示HTTPS的通信数据。</p><p><img src="https://m4c0ndo-post-image.oss-cn-beijing.aliyuncs.com/img/202310221022012.jpg" alt="202310221022012"></p><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>以<code>Chrome</code>为例，mac中详细操作如下：</p><h3 id="1-查找浏览器"><a href="#1-查找浏览器" class="headerlink" title="1.查找浏览器"></a>1.查找浏览器</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo find / -iname <span class="string">&quot;Google Chrome&quot;</span></span><br></pre></td></tr></table></figure><p>可以找到binary所在路径为<code>/Applications/Google Chrome.app/Contents/MacOS/Google Chrome</code></p><h3 id="2-运行chrome并指定sslkey-logfile"><a href="#2-运行chrome并指定sslkey-logfile" class="headerlink" title="2. 运行chrome并指定sslkey logfile"></a>2. 运行chrome并指定sslkey logfile</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ssl-key-log-file=/Users/`<span class="built_in">whoami</span>`/sslkeylog.log</span><br></pre></td></tr></table></figure><h3 id="3-启动Wireshark，并配置sslkey文件"><a href="#3-启动Wireshark，并配置sslkey文件" class="headerlink" title="3. 启动Wireshark，并配置sslkey文件"></a>3. 启动Wireshark，并配置sslkey文件</h3><p><img src="https://m4c0ndo-post-image.oss-cn-beijing.aliyuncs.com/img/202310221027131.png" alt="image-20231022102728794"></p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>按理来说，这样配置之后就可以抓到HTTPS流量包了，但是在实际操作中，抓包的结果和配置之前没有区别。后来我看到一篇博客<a href="https://blog.csdn.net/weixin_45056784/article/details/120526640">Mac电脑配置完sslkey.log，但还是无法抓包HTTPS</a>，里面也遇到了相同的问题，给出的原因和解决措施如下。</p><p>上述操作创建log文件时使用的命令是：</p><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ssl-key-log-file=/Users/username/sslkeylog.log</span><br></pre></td></tr></table></figure><p>即以管理员的身份运行。这样创建的log文件其他应用程序是没有权限访问的，所以不用sudo，直接：</p><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ssl-key-log-file=/Users/username/sslkeylog.log</span><br></pre></td></tr></table></figure><p>重启Wireshark之后，问题成功解决，成功抓取到HTTP2流量包。</p><p><img src="https://m4c0ndo-post-image.oss-cn-beijing.aliyuncs.com/img/202310221032869.jpg" alt="HTTP2"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> wireshark </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FRP内网渗透</title>
       <link href="/2023/10/20/FRP%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
       <url>/2023/10/20/FRP%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</url>
